@@ -1,1 +1,163 @@
-Esto es un tp
+TRABAJO PRACTICO BASH
+
+Ejercicio 1.
+
+#!/bin/bash
+echo "Buenas noches"
+read texto
+echo "Buenas noches $texto"
+
+Ejercicio 2.
+
+#!/bin/bash
+read -p "Escribe un texto de nombre para el archivo" texto
+touch $texto+"Archivo" 
+
+Ejercicio 3.
+
+#!/bin/bash
+read -p "Ingrese primer fecha" fecha1
+read -p "Ingrese segunda fecha" fecha2
+if [[ $fecha1 -ge $fecha2 ]];
+then
+echo "Los dias transcurridos son: $(( $fecha1 - $fecha2 ))"
+else
+echo "Los dias transcurridos son: $(( fecha2 - fecha1 ))"
+fi
+
+Ejercicio 4.
+
+#!/bin/bash
+read -p "Ingrese primer fecha" fecha1
+read -p "Ingrese segunda fecha" fecha2
+if [[ $fecha1 -ge $fecha2 ]];
+then
+echo "Los dias transcurridos son: $(( $fecha1 - $fecha2 ))"
+else
+echo "Los dias transcurridos son: $(( fecha2 - fecha1 ))"
+fi
+
+Ejercicio 5. 
+
+#!/bin/bash
+read -p "Ingrese un numero: " num
+for (( i=2;i<=num;i++ )); do
+	if (( $num % i == 0 )); then
+		echo "Es un numero no primo"
+		break
+	else
+		echo "Es un numero primo"
+		break
+	fi
+done
+
+Ejercicio 6.
+
+#!/bin/bash
+read -p "Ingrese un numero a verificar: " num
+if (( $num % 2 == 0 )); then
+echo "Es un numero par"
+else
+echo "Es un numero impar"
+fi
+
+Ejercicio 7.
+
+#!/bin/bash
+read -p "Ingrese una frase en mayuscula: " frase
+if [[ "$frase" == "${frase^^}" ]]; then
+echo "La frase en minuscula es: ${frase,,}"
+elif [[ "$frase" == "${frase,,}" ]]; then
+echo "La frase que ingresaste esta en minuscula"
+else
+echo "Error"
+fi
+
+Ejercicio 8.
+
+#!/bin/bash
+read -p "Ingrese el primer numero: " num1
+read -p "Ingrese el segundo numero: " num2
+if [[ $num1 > $num2 ]]; then
+echo "$num1 es mayor que $num2"
+elif [[ $num1 < $num2 ]];then
+echo "$num1 es menor que $num2"
+else
+echo "Los numeros que ingresaste son iguales"
+fi
+
+Ejercicio 9.
+
+#!/bin/bash
+read -p "Ingrese el primer numero: " num1
+read -p "Ingrese el segundo numero: " num2
+let suma=$((num1+num2))
+let resta=$((num1-num2))
+let division=$((num1/num2))
+let multiplicacion=$((num1*num2))
+let potencia=$((num1**num2))
+echo "Las operaciones entre los dos numeros ingresados son:"
+echo "Suma: $suma"
+echo "Resta: $resta"
+echo "Division: $division"
+echo "Multiplicacion: $multiplicacion"
+echo "Potencia entre los dos numeros: $potencia"
+
+Ejercicio 10.
+
+#!/bin/bash
+read -p "Ingrese el primer numero: " num1
+read -p "Ingrese el segundo numero: " num2
+read -p "Ingrese el tercer numero: " num3
+read -p "Ingrese el cuarto numero: " num4
+read -p "Ingrese el quinto numero: " num5
+let promedio=$(((num1+num2+num3+num4+num5)/5))
+echo "El promedio de los cinco numeros ingresados es: " $promedio
+
+Ejercicio 11.
+#!/bin/bash
+for i in {0..4}; do
+	read -p "Ingrese la palabra $i: " palabra[i]
+done
+mayorLongitud=${#palabra[0]}
+for i in {0..4}; do
+	if [[ ${#palabra[i]} -gt ${#mayorLongitud} ]]; then
+	mayorLongitud=${palabra[i]}
+	fi
+done
+echo "La palabra con mayor longitud es: $mayorLongitud"
+
+Ejercicio 12.
+
+#!/bin/bash
+read -p "Ingrese la nota del alumno: " nota
+if (( $nota >= 9 && $nota <= 10 )); then
+echo "Nota: $nota Calificacion: EXCELENTE"
+elif (( $nota >= 7 && $nota <= 8 )); then
+echo "Nota: $nota  Calificacion: MUY BIEN"
+elif (( $nota == 6 )); then
+echo "NOta: $nota calificacion: BIEN"
+elif (( $nota > 0 && $nota <= 5 )); then
+echo "Nota: $nota calificacion: IRREGULAR"
+else
+echo "Nota incorrecta"
+fi
+
+Ejercicio 13.
+
+#!/bin/bash
+usuario="laureano"
+contrasena="laujuarez"
+read -p "Ingresa tu usuario: " usu
+usu=${usu,,}
+if [[ "$usu" == "$usuario" ]]; then
+	echo "Usuario Correcto: "
+	read -p "Ingresa tu contrasena" contra
+	if [[ "$contra" == "$contrasena" ]]; then
+		echo "Ingresaste"
+	else
+		echo "CONTRASENA INCORRECTA"
+	fi
+else
+	echo "Usuario Incorrecto"
+fi
