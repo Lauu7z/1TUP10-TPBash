@@ -8,3 +8,4 @@ echo "$num1 es menor que $num2"
 else
 echo "Los numeros que ingresaste son iguales"
 fi
+# Se piden dos numeros y depende en la condicion del if que entren informa si es mayor o menor

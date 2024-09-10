@@ -11,3 +11,5 @@ echo "Nota: $nota calificacion: IRREGULAR"
 else
 echo "Nota incorrecta"
 fi
+# Depende de la nota ingresada entra en la condicion que tiene que ser y si la nota es menor a 0 o mayor a 10
+# va aparecer un mensaje diciendo nota incorrecta.
